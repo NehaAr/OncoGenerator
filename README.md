@@ -1,6 +1,5 @@
 # OncoGenerator
 
-*(formerly SynthProteomics / Synthetic-omics-data)*
 
 [![License: MIT](https://img.shields.io/badge/code-MIT-yellow.svg)](LICENSE)
 [![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-blue.svg)](LICENSE-DATA.txt)
