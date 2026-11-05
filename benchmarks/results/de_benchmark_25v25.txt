@@ -1,0 +1,8 @@
+25 early vs 25 late, 20 random designs, BH FDR 5%
+truth: 154 proteins with a generated effect, 26 true nulls (FDR estimates rest on few nulls)
+
+  scenario         test recall small medium large observed_FDR AUROC
+     clean      Welch t   0.67  0.59   0.64  0.87         0.01  0.89
+     clean Mann-Whitney   0.65  0.58   0.72  0.85         0.01  0.90
+noise_high      Welch t   0.17  0.11   0.12  0.32         0.00  0.75
+noise_high Mann-Whitney   0.13  0.08   0.11  0.27         0.00  0.74

@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oncogenerator"
+version = "1.1.0"
+description = "Synthetic clinical and proteomic data generator for endometrial cancer research"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Neha Arora"}]
+requires-python = ">=3.9"
+dependencies = ["numpy", "pandas"]
+
+[project.optional-dependencies]
+parquet = ["pyarrow"]
+examples = ["scipy", "scikit-learn"]
+app = ["gradio", "matplotlib", "scikit-learn"]
+
+[project.scripts]
+oncogenerator = "oncogenerator.cli:main"
+
+[tool.setuptools]
+packages = ["oncogenerator"]
+
+[tool.setuptools.package-data]
+oncogenerator = ["data/*.csv"]

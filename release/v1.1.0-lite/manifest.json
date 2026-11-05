@@ -1,0 +1,113 @@
+{
+  "generator_version": "1.1.0",
+  "format": "csv.gz",
+  "datasets": {
+    "core_n1000": {
+      "n_patients": 1000,
+      "n_proteins": 180,
+      "seed": 1,
+      "scenario": "clean",
+      "files": {
+        "clinical.csv.gz": "e7673cf5c24c860f238c6ee44ccce71cdc0071409a9b9de1cafb1a9bff4b7911",
+        "proteins_log2fc.csv.gz": "5d0c8f71fde621dd930df92dcc6838d415efc3914ea86ffbdeadce59cc81795f",
+        "ground_truth_proteins.csv.gz": "76e034518537db8361c518c95d53a3f9dd7fc569a039ea8d638176e2848b5e0e",
+        "ground_truth_contrasts.csv.gz": "b9ad433068f284c49ada959b0ea1a7d2ef5eca346ab72e35dd890eaa1186a438",
+        "expected_log2fc_noise_free.csv.gz": "336efc9499688a34517e9041b4f739666fd191dbcb94b3b4c3a47411f4db9027",
+        "run_metadata.json": "d079959dc3907289038c0cff513d3b385bc5ee9a98f38fcb8d59f2c051a0e744"
+      }
+    },
+    "core_n10000": {
+      "n_patients": 10000,
+      "n_proteins": 180,
+      "seed": 2,
+      "scenario": "clean",
+      "files": {
+        "clinical.csv.gz": "f53e21ece9cc59428554a64e670d4f3a36ab5ec0e6fa10148afd9675c771aabc",
+        "proteins_log2fc.csv.gz": "33a33da73dd595fe531950700f91bebf35178aa04c41861fe4317da86b56536a",
+        "ground_truth_proteins.csv.gz": "76e034518537db8361c518c95d53a3f9dd7fc569a039ea8d638176e2848b5e0e",
+        "ground_truth_contrasts.csv.gz": "bf5b9128ff09b684b43548adb637c73f3fd982f67f83e09d5643af2a7b818e2e",
+        "expected_log2fc_noise_free.csv.gz": "77f46b666344cf2f915662eef1b9be62408a796d38edca4aca0d7e901a5a00ed",
+        "run_metadata.json": "8b4711a51a06a7b7111f63d24f03bb170ff322ef25bcc70f0b6fbe91768a414c"
+      }
+    },
+    "scenario_noise_low_n2000": {
+      "n_patients": 2000,
+      "n_proteins": 180,
+      "seed": 2,
+      "scenario": "noise_low",
+      "files": {
+        "clinical.csv.gz": "fa26b832e4d1486760b0b324ef91f78e63fbed286600baa790e34caab29e8077",
+        "proteins_log2fc.csv.gz": "1d072ebdd138931220b94b12d7291ab9b0a6eca38b0124c5d2b43fa7ff8480f0",
+        "ground_truth_proteins.csv.gz": "76e034518537db8361c518c95d53a3f9dd7fc569a039ea8d638176e2848b5e0e",
+        "ground_truth_contrasts.csv.gz": "68e70ff26a53e09f7eaf05a7c4413eb73e60506caf773c6139f599d3f1f4c65a",
+        "run_metadata.json": "444ae97c06ba823c17e79cf3e5fb573c44d571e8552df95af8d053a3d057dcc6"
+      }
+    },
+    "scenario_noise_high_n2000": {
+      "n_patients": 2000,
+      "n_proteins": 180,
+      "seed": 2,
+      "scenario": "noise_high",
+      "files": {
+        "clinical.csv.gz": "fa26b832e4d1486760b0b324ef91f78e63fbed286600baa790e34caab29e8077",
+        "proteins_log2fc.csv.gz": "1533338cc4405cf59bea3021626c5cf3f56d276696c232d71a2583f0fc3feb91",
+        "ground_truth_proteins.csv.gz": "76e034518537db8361c518c95d53a3f9dd7fc569a039ea8d638176e2848b5e0e",
+        "ground_truth_contrasts.csv.gz": "68e70ff26a53e09f7eaf05a7c4413eb73e60506caf773c6139f599d3f1f4c65a",
+        "run_metadata.json": "fe22371c01642a68df228a2574edb56d8f3a84e5b947639d658d5a6106c41236"
+      }
+    },
+    "scenario_imbalanced_late10_n2000": {
+      "n_patients": 2000,
+      "n_proteins": 180,
+      "seed": 2,
+      "scenario": "imbalanced_late10",
+      "files": {
+        "clinical.csv.gz": "5183bd050ad95bcfa706a052f9e597e30691479d2d17c97763ee97bd89c1cc44",
+        "proteins_log2fc.csv.gz": "f8d18ef20953bce3ced09733af989164df4bfad1f7394723c768d6e3e6fd6e22",
+        "ground_truth_proteins.csv.gz": "76e034518537db8361c518c95d53a3f9dd7fc569a039ea8d638176e2848b5e0e",
+        "ground_truth_contrasts.csv.gz": "d74f789a9fcf98fb97b3bca94879be7cd32491d753b457712b9d6ae62d030613",
+        "run_metadata.json": "773770052a718e6b290da9359eb55ee26c104399cd2cd9e5a4d6a61b0cffc0a3"
+      }
+    },
+    "scenario_batch5_n2000": {
+      "n_patients": 2000,
+      "n_proteins": 180,
+      "seed": 2,
+      "scenario": "batch5",
+      "files": {
+        "clinical.csv.gz": "378eca8f415a5f286616ae22f0e2d725a481410f56e6f60ef382b846c9eead0b",
+        "proteins_log2fc.csv.gz": "85406e169957c1bf486ccf2e52dd622779abe84b4dbb7a6d080cfb57e076b53a",
+        "ground_truth_proteins.csv.gz": "76e034518537db8361c518c95d53a3f9dd7fc569a039ea8d638176e2848b5e0e",
+        "ground_truth_contrasts.csv.gz": "68e70ff26a53e09f7eaf05a7c4413eb73e60506caf773c6139f599d3f1f4c65a",
+        "ground_truth_batch_effects.csv.gz": "bdc71ac0b1a1f934e7ea04e3223df6de8a2fc99e31c777734d7bb1ab9cdd82cb",
+        "run_metadata.json": "150f1b61555a3fde12e7a40111c0db22a73028246e3fe8cafcf93779de67e17a"
+      }
+    },
+    "scenario_missing_mcar10_n2000": {
+      "n_patients": 2000,
+      "n_proteins": 180,
+      "seed": 2,
+      "scenario": "missing_mcar10",
+      "files": {
+        "clinical.csv.gz": "fa26b832e4d1486760b0b324ef91f78e63fbed286600baa790e34caab29e8077",
+        "proteins_log2fc.csv.gz": "3db737da5fa28fd3b76c0d33e37c918543d0d6987be00b00d15a43ff031fc0d9",
+        "ground_truth_proteins.csv.gz": "76e034518537db8361c518c95d53a3f9dd7fc569a039ea8d638176e2848b5e0e",
+        "ground_truth_contrasts.csv.gz": "68e70ff26a53e09f7eaf05a7c4413eb73e60506caf773c6139f599d3f1f4c65a",
+        "run_metadata.json": "84553a9f5067757049d8ec626ecfb4e751bf48b2d6a9d2b4b71a48f4b7b88cb0"
+      }
+    },
+    "scenario_missing_mnar20_n2000": {
+      "n_patients": 2000,
+      "n_proteins": 180,
+      "seed": 2,
+      "scenario": "missing_mnar20",
+      "files": {
+        "clinical.csv.gz": "fa26b832e4d1486760b0b324ef91f78e63fbed286600baa790e34caab29e8077",
+        "proteins_log2fc.csv.gz": "98beae82ea037b785261177c5fabd998b68a7a7ffb9e47b811a347045d7ec239",
+        "ground_truth_proteins.csv.gz": "76e034518537db8361c518c95d53a3f9dd7fc569a039ea8d638176e2848b5e0e",
+        "ground_truth_contrasts.csv.gz": "68e70ff26a53e09f7eaf05a7c4413eb73e60506caf773c6139f599d3f1f4c65a",
+        "run_metadata.json": "ba8b1ff08fd392280a4a4155c9271bdc080187b65fafd815fc31ab95e221d7db"
+      }
+    }
+  }
+}

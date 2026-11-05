@@ -1,0 +1,1 @@
+Lite bundle: core_n1000 and core_n10000 are identical to the full release; scenario_* folders use 2,000 patients (seed 2) instead of 10,000. Rebuild: python scripts/build_release.py --lite. Full release: python scripts/build_release.py

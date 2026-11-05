@@ -1,0 +1,21 @@
+{
+  "generator_version": "1.1.0",
+  "n": 2000,
+  "seed": 2,
+  "rho": 0.4,
+  "legacy": false,
+  "scenario": "noise_high",
+  "scenario_params": {
+    "name": "noise_high",
+    "noise_scale": 2.0,
+    "late_fraction": null,
+    "n_batches": 1,
+    "batch_shift_sd": 0.3,
+    "missing_mcar": 0.0,
+    "missing_mnar": 0.0,
+    "description": "All random components x2.0."
+  },
+  "n_proteins": 180,
+  "large_effect_threshold": 0.5,
+  "null_tolerance": 1e-06
+}

@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software or its data release, please cite it as below."
+title: "OncoGenerator: a probabilistic fuzzy rule-based generator of synthetic clinical and proteomic data for endometrial cancer research"
+type: software
+authors:
+  - family-names: Arora
+    given-names: Neha
+    affiliation: University of Newcastle
+version: 1.1.0
+date-released: 2026-11-05
+license: MIT
+repository-code: "https://github.com/NehaAr/OncoGenerator"
+url: "https://github.com/NehaAr/OncoGenerator"
+abstract: >-
+  Seedable generator of fully synthetic endometrial cancer clinical records and
+  protein log2 fold-change data, with ground-truth labels, noise/imbalance/batch/missing-data
+  scenarios and benchmark scripts. All data are synthetic.
+keywords:
+  - synthetic data
+  - proteomics
+  - endometrial cancer
+  - benchmark
+  - bioinformatics
+# doi: add the Zenodo DOI here after the first Zenodo release is minted

@@ -1,0 +1,7 @@
+Data in release/ (the OncoGenerator-Endo data release) are licensed under the
+Creative Commons Attribution 4.0 International licence (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+Copyright (c) 2026 Neha Arora. Attribution: cite the dataset DOI (once minted) and
+the OncoGenerator repository. The software is licensed separately under the MIT
+licence (see LICENSE). See NOTICE.md for third-party attributions.

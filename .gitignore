@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+# the full data release is large: publish it on Zenodo / S3 instead of committing it
+release/v1.1.0/

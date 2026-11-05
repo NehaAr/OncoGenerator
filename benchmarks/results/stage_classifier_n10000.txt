@@ -1,0 +1,6 @@
+n=10000  late-stage fraction=0.316  (majority-class accuracy 0.684)
+                                                               feature set      accuracy       ROC-AUC
+                                                    A. clinical, leak-free 0.698 ± 0.010 0.674 ± 0.013
+                                 B. clinical + all 180 proteins, leak-free 0.960 ± 0.002 0.995 ± 0.001
+C. v1.0.0-style: 11 clinical (incl. Survival_Outcome) + 8 proteins [LEAKY] 0.774 ± 0.009 0.810 ± 0.010
+                     D. same as C but WITHOUT Survival_Outcome [leak-free] 0.771 ± 0.007 0.797 ± 0.007

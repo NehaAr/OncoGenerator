@@ -1,0 +1,105 @@
+# Data dictionary (release v1.1.0)
+
+Every table is keyed by `Patient_ID` (patient-level) or `protein` (protein-level). Files are `.csv.gz` (or `.parquet` if built with `--format parquet`).
+
+
+## `clinical`
+
+File: clinical.csv.gz / clinical.parquet  
+Rows: one per synthetic patient
+
+| Column | Description |
+|---|---|
+| `Patient_ID` | Join key shared by every table (EC0000...). |
+| `Ages` | Age in years, Normal(60,15) truncated to integers and clipped to 30-85. |
+| `Ethnicity` | Categorical, fixed weights (European 55%, East Asian 15%, South Asian 10%, other groups). Independent of all other variables. |
+| `Menopause` | Integer code: 1 if Ages <= 51 (pre/peri), 2 if Ages > 51 (post). |
+| `Menopause_label` | Text label for Menopause: pre_or_peri / post. |
+| `Grade` | Grade1/Grade2/Grade3; depends on Tumor_type. |
+| `Tumor_type` | Type1 or Type2; Type2 more likely for age>=60, nulliparous, BMI>=25. |
+| `Histological_Subtype` | Endometrioid/Mucinous (Type1); Serous/Clear Cell/Undifferentiated (Type2). |
+| `Stage` | Ten FIGO-style stage labels (Stage1 ... Stage4B); depends on Grade. |
+| `Nulliparity` | yes/no; probability 0.5 if Ages<=35 else 0.6. |
+| `BMI` | Normal(25,4) clipped to 21-40, 2 decimals. |
+| `Myometrial_mm` | Uniform(2,40). Independent of every other variable (noise column). |
+| `Treatment` | Surgery/Chemotherapy/Radiotherapy/Combined, uniformly random. Independent of stage (noise column). |
+| `Survival_Outcome` | Alive/Deceased, generated FROM Stage and Grade. Do NOT use it as a predictor of stage (target leakage). |
+| `Late_Stage` | Derived label: 1 if Stage is III or IV, else 0. |
+| `Batch` | Only in batch scenarios: batch id B1..Bk. |
+
+## `proteins_log2fc`
+
+File: proteins_log2fc.csv.gz  
+Rows: one per patient
+
+| Column | Description |
+|---|---|
+| `Patient_ID` | Join key. |
+| `<180 protein columns>` | Synthetic log2 fold-change vs normal tissue, clipped to [-3,3] (batch scenario: after batch effects, may exceed +/-3). NaN = missing in missing_* scenarios. |
+
+## `expected_log2fc_noise_free`
+
+File: expected_log2fc_noise_free.csv.gz (core_n1000 and core_n10000 only)  
+Rows: one per patient
+
+| Column | Description |
+|---|---|
+| `<protein columns>` | Noise-free expected value = kappa(grade,stage) x sampler mean when the protein's clinical factor applies, else 0. Per-sample ground truth; independent of noise level. |
+
+## `ground_truth_proteins`
+
+File: ground_truth_proteins.csv.gz  
+Rows: one per protein
+
+| Column | Description |
+|---|---|
+| `protein` | Gene symbol as used in the dictionary. |
+| `curation_status` | curated / not_in_dictionary / curated_but_incomplete_entry_treated_as_uncurated. |
+| `regulation_raw` | Regulation text from the curated dictionary (UP, DOWN, UP/DOWN, LOW). |
+| `regulation_class` | Normalised class. |
+| `factor_raw` | Clinical factor restricting where the effect applies (NA = everyone). |
+| `normal_tissue_regulation_hpa` | up/moderate/down from HPA endometrium nTPM (>100 / 10-100 / <10); blank if gene not in HPA. Derived from Human Protein Atlas (CC BY 4.0). |
+| `prognostic_flag_hpa` | yes if HPA TCGA-UCEC prognostic p-value <= 0.05; blank if gene not in HPA. Derived from Human Protein Atlas (CC BY 4.0). |
+| `sampler` | Distribution used: up_strong/up_weak/down_strong/down_weak/low/neutral. |
+| `sampler_mean` | Mean of the sampler (log2FC). |
+| `sampler_sd` | SD of the sampler. |
+| `clip_lo` | Lower clip of the sampler. |
+| `clip_hi` | Upper clip of the sampler. |
+| `pathway` | Pathway used for correlated noise (blank = none). |
+| `n_distinct_regulation_values_in_dictionary` | More than 1 = the dictionary lists conflicting regulation for this gene; the first entry is used. |
+
+## `ground_truth_contrasts`
+
+File: ground_truth_contrasts.csv.gz  
+Rows: protein x contrast (cohort-specific)
+
+| Column | Description |
+|---|---|
+| `contrast` | Late_vs_Early_stage, Grade3_vs_Grade1, Postmenopausal_vs_Premenopausal, Type2_vs_Type1. |
+| `protein` | Gene symbol. |
+| `n_group_B` | Patients in the first-named group. |
+| `n_group_A` | Patients in the second-named group. |
+| `true_effect_log2fc` | Mean noise-free expected log2FC of group B minus group A (before noise and clipping). |
+| `is_nonzero_effect` | True if the generator gave a non-zero expected difference; False = true null. For Late_vs_Early_stage and Grade3_vs_Grade1 this is the intended signal. For Postmenopausal_vs_Premenopausal and Type2_vs_Type1 tiny non-zero values also arise from indirect associations (age -> type -> grade -> kappa), so prefer true_effect_log2fc or is_large_effect there. |
+| `is_large_effect` | True if |true_effect_log2fc| >= 0.5. |
+
+## `ground_truth_batch_effects`
+
+File: ground_truth_batch_effects.csv.gz (batch5 scenario only)  
+Rows: batch x protein
+
+| Column | Description |
+|---|---|
+| `batch` | Batch id. |
+| `protein` | Gene symbol. |
+| `additive_shift` | Additive shift applied. |
+| `batch_gain` | Multiplicative gain applied to the whole batch. |
+
+## `run_metadata.json`
+
+File: run_metadata.json  
+Rows: -
+
+| Column | Description |
+|---|---|
+| `*` | Generator version, seed, n, scenario parameters, rho, thresholds. Together with the code this reproduces the files. |
