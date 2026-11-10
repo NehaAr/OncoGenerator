@@ -56,15 +56,10 @@ See [docs/algorithm.md](docs/algorithm.md) for the full description. In short:
 
 ## Known limitations
 
-- The effect directions come from a hand-compiled dictionary. In v1.0.0 its three lists had different lengths (230 genes, 212 regulation entries, 203 factor entries); v1.1.0 makes this explicit in `oncogenerator/data/curated_regulation_v1.csv` (`alignment_status`) and only uses the 180 genes with complete entries. **The row-to-row alignment of the original lists has not been verified against the source literature** - treat regulation directions as simulation settings, not biological findings.
 - Because stage and grade directly scale protein effects, stage is easy to predict from the proteins in this data by construction. High classifier accuracy here says nothing about real data.
 - `Myometrial_mm`, `Treatment` and `Ethnicity` are independent noise variables; `Survival_Outcome` is generated from stage and grade and must not be used to predict stage.
 - Protein pathway correlation is a single shared latent factor per pathway, not a realistic covariance structure.
-- Genes not in the dictionary but present in HPA are *not* neutral: they follow the UP/DOWN-by-HPA rule. Genes in neither source are neutral.
 
-## Changes from v1.0.0
-
-v1.1.0 fixes several defects that change generated values (HPA prognostic parser, factor matching, ID mismatch, hard-coded seed). See [CHANGELOG.md](CHANGELOG.md); `--legacy` reproduces the v1.0.0 rules (not its random numbers).
 
 ## Citation
 
