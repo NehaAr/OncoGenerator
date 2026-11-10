@@ -2,8 +2,7 @@
 """Does adding synthetic patients to a small real cohort help a classifier?
 
 Needs YOUR real data: a CSV with a 0/1 label column and numeric feature columns
-whose names match proteins in the synthetic panel. (The manuscript's n=47 TCGA-UCEC
-cohort is not in this repo.) Real-only vs real+synthetic is compared with repeated
+whose names match proteins in the synthetic panel. Real-only vs real+synthetic is compared with repeated
 stratified CV in which synthetic rows are added to TRAIN folds only.
     python examples/03_augmentation.py --real real.csv --label Late_Stage --n-synth 500
 """
